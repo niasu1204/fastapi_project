@@ -3,10 +3,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 import os 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 app = FastAPI()
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 @app.get("/html")
@@ -21,7 +20,7 @@ def html_test():
 def form_page(request: Request):
     return templates.TemplateResponse('form.html',{"request": request})
 
-# Form(...) : 필수값. 반드시 들어와야 하는 값
+# Form(...) : 필수값. 반드시 들어와야 하는 값(없으면 422에러 발생)
 # Form(기본값)
 @app.post('/submit')
 def submit(name:str = Form(...), age:int = Form(0), age2:int = Form(0)):

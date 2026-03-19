@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이템 등록</title>
+</head>
+
+<body>
+    <h1>아이템 등록</h1>
+    <form method="post" id="itemForm">
+        <label>이름: <input type="text" name="name" required /></label><br>
+        <label>가격: <input type="number" step="0.01" name="price" required /></label><br>
+        <label>
+            할인 여부:
+            <select name="is_offer">
+                <option value="">없음</option>
+                <option value="true">할인</option>
+            </select>
+        </label><br>
+        <button type="submit">등록</button>
+    </form>
+    <!-- <script>
+document.getElementById("itemForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    // 문자열 "true"/"" → boolean/null 처리
+    data.is_offer = data.is_offer === "true";
+
+    const res = await fetch("/items.json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+    const result = await res.json();
+    console.log(result);
+});
+</script> -->
+</body>
+
+</html>

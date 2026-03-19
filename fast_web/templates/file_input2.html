@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파일 업로드</title>
+</head>
+
+<body>
+    <h1>파일 업로드</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label>제목:
+                <input type="text" name="title">
+            </label>
+        </div><br>
+        <div>
+            <label>사진 업로드1
+                <input type="file" name="photo1" accept="image/*" required multiple>
+            </label>
+            <label>사진 업로드2
+                <input type="file" name="photo2" accept="image/*" required>
+            </label>
+            
+        </div><br>
+        <button type="submit">업로드</button>
+    </form>
+</body>
+
+</html>
