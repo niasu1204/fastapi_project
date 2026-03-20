@@ -16,13 +16,13 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 
-# DB 세션 의존성
+# DB 세션 의존성 : 요청할때마다 DB 연결 열고 -> 사용 -> 연결 종료
 def get_db():
     db = SessionLocal()
     try:
         yield db
     finally:
-        db.close()
+        db.close() 
 
 
 #  메모 목록
